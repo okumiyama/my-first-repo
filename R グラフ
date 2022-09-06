@@ -1,0 +1,17 @@
+#使用ライブラリ
+library(ggplot2)
+library(gridExtra)
+library(ggExtra)
+
+
+#すべてのデータの箱ひげ図
+for (i in 3:33) {
+  pl_1 <- ggplot(data=df,aes(x="",y=df[,i])) +
+    geom_boxplot() +
+    labs(x="all_data",y=item[i])
+  pl_2 <-ggplot(data=df,aes(x=factor(Gender),y=df[,i])) +
+    geom_boxplot() +
+    labs(y=item[i])
+  grid.arrange(pl_1,pl_2,ncol=2)
+}
+
